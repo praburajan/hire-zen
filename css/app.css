@@ -1,0 +1,67 @@
+body {
+	padding-top: 80px;
+}
+
+a {
+	cursor : pointer;
+}
+
+.toolbar {
+	background-color : #F0F0F0;
+	border-radius : 0px;
+	border : 1px solid #DDD;
+	border-bottom-width: 0px;
+}
+
+.panel {
+	margin : 0px !important;
+}
+
+.panel-body {
+	padding : 0px !important;
+}
+
+.list-group-item {
+	border-radius : 0px !important;
+}
+
+ul>li.active {
+	background-color : #428bca;
+}
+
+ul>li.normal {
+	background-color : white;
+}
+
+div.login-panel {
+	/* Internet Explorer 10 */
+    display:-ms-flexbox;
+    -ms-flex-pack:center;
+    -ms-flex-align:center;
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
+    /* Safari, Opera, and Chrome */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+    width: 400px;
+    height : 200px;
+    margin: auto;
+    /*box-sizing: border-box;*/
+    padding : 10px 10px 10px 10px;
+}
+
+.login-field {
+	width : 300px;
+}
+
+.filter-panel-field {
+	margin : 8px 10px 8px 10px;
+	width : 250px !important;
+}
