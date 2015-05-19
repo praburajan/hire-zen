@@ -1,0 +1,116 @@
+{
+	"roles" : [
+		"panelMember", "hiringManager", "director", "hr", "admin"
+	],
+
+	"users" : [
+		{
+			"email" : "prabu.shanmugiah@oracle.com",
+			"name" : "Prabu Rajan",
+			"roles" : ["panelMember", "hiringManager"],
+			"id" : "1001",
+			"teams" : ["workspace"]
+		},
+		{
+			"email" : "ravishankar.siddan@oracle.com",
+			"name" : "Ravishankar Siddan",
+			"roles" : ["panelMember"],
+			"id" : "1002",
+			"teams" : ["workspace"]
+		},
+		{
+			"email" : "magesh.kumar.narayanan@oracle.com",
+			"name" : "Magesh Kumar",
+			"roles" : ["panelMember","hiringManager"],
+			"id" : "1002",
+			"teams" : ["workspace"]
+		}
+	],
+
+	"positions" : [
+		{
+			"id" : "2001",
+			"level" : "IC4",
+			"location" : "Bangalore",
+			"hiringManager" : "1001",
+			"candidates" : [
+				{
+					"id" : "3001"
+				}
+			],
+			"panel" : [
+				"1001","1002","1003"
+			]
+		}
+	],
+
+	"candidates" : {
+		"3001" : {
+			"id" : "3001",
+			"name" : "Naresh Kumar",
+			"email" : "naresh.bhambu@gmail.com",
+			"mobile" : "9986032456",
+			"position" : "2001",
+			"location" : "Bangalore",
+			"openToRelocate" : "true",
+			"skills" : ["HTML5", "Javascript", "CSS", "Angular JS"],
+			"experience" : "8",
+			"resume" : "",
+			"salary" : {
+				"current" : "1000000",
+				"expected" : "40%",
+				"noticePeriod" : "2"
+			},
+			"status" : "IN_PROGRESS",
+			"interviews" : {
+				"1" : {
+					"round" : "1",
+					"medium" : "telephone",
+					"date" : "01 May, 2015 5:30 PM",
+					"interviewer" : "1002",
+					"feedback" : "good",
+					"feedbackDocument" : "",
+					"decision" : "yes"
+				},
+				"2" : {
+					"round" : "2",
+					"medium" : "video-conf",
+					"date" : "01 May, 2015 5:30 PM",
+					"interviewer" : "1002",
+					"feedback" : "good",
+					"feedbackDocument" : "",
+					"decision" : "yes"
+				}
+			}
+		},
+		"3002" : {
+			"id" : "3002",
+			"name" : "",
+			"email" : "naresh.bhambu@gmail.com",
+			"mobile" : "9986032456",
+			"position" : "2001",
+			"location" : "Bangalore",
+			"openToRelocate" : "true",
+			"skills" : {"one" : "HTML5", "two": "Javascript", "three" : "CSS", "four": "Angular JS"},
+			"experience" : "8",
+			"resume" : "",
+			"salary" : {
+				"current" : "1000000",
+				"expected" : "40%",
+				"noticePeriod" : "2"
+			},
+			"status" : "IN_PROGRESS",
+			"interviews" : [
+				{
+					"round" : "1",
+					"medium" : "telephone",
+					"date" : "01 May, 2015 5:30 PM",
+					"interviewer" : "1002",
+					"feedback" : "not so good",
+					"feedbackDocument" : "",
+					"decision" : "yes"
+				}
+			]
+		}
+	}
+}
