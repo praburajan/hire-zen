@@ -11,11 +11,19 @@
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<!-- Firebase -->
+	<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+	<!-- AngularFire -->
+	<script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="stores/candidatesStore.js"></script>
+	<script src="controllers/candidatesController.js"></script>
+	
 </head>
 <body ng-app="hireZen" ng-controller="MainController">
 	<header appLabel="Hire Zen" appIcon="img/hire-zen.png" userInfo="{{userInfo}}"></header>
-	<div class="container" ng-view>
+	<div class="container view-holder" ng-view>
 	</div>
 </body>
 </html>

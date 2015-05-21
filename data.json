@@ -1,31 +1,48 @@
 {
-	"roles" : [
-		"panelMember", "hiringManager", "director", "hr", "admin"
-	],
+	"roles" : {
+		"0" : "panelMember", 
+		"1" : "hiringManager", 
+		"2" : "director", 
+		"3" : "hr", 
+		"4" : "admin"
+	},
+	
 
-	"users" : [
-		{
+	"users" : {
+		"0" : {	
 			"email" : "prabu.shanmugiah@oracle.com",
 			"name" : "Prabu Rajan",
-			"roles" : ["panelMember", "hiringManager"],
+			"roles" : {
+				"0" : "panelMember", 
+				"1" : "hiringManager"
+			},
 			"id" : "1001",
-			"teams" : ["workspace"]
+			"teams" : {
+				"0" : "workspace"
+			}
 		},
-		{
+		"1" : {
 			"email" : "ravishankar.siddan@oracle.com",
 			"name" : "Ravishankar Siddan",
-			"roles" : ["panelMember"],
+			"roles" : "panelMember",
 			"id" : "1002",
-			"teams" : ["workspace"]
+			"teams" : {
+				"0" : "workspace"
+			}
 		},
-		{
+		"2" : {
 			"email" : "magesh.kumar.narayanan@oracle.com",
 			"name" : "Magesh Kumar",
 			"roles" : ["panelMember","hiringManager"],
 			"id" : "1002",
-			"teams" : ["workspace"]
+			"teams" : {
+				"0" : "workspace"
+			}
+		},
+		"3" : {
+
 		}
-	],
+	},
 
 	"positions" : [
 		{
@@ -100,17 +117,17 @@
 				"noticePeriod" : "2"
 			},
 			"status" : "IN_PROGRESS",
-			"interviews" : [
-				{
-					"round" : "1",
-					"medium" : "telephone",
-					"date" : "01 May, 2015 5:30 PM",
-					"interviewer" : "1002",
-					"feedback" : "not so good",
-					"feedbackDocument" : "",
-					"decision" : "yes"
-				}
-			]
+			"interviews" : {
+                "0": {
+                "round" : "1",
+                "medium" : "telephone",
+                "date" : "01 May, 2015 5:30 PM",
+                "interviewer" : "1002",
+                "feedback" : "not so good",
+                "feedbackDocument" : "",
+                "decision" : "yes"
+                }
+            }
 		}
 	}
 }

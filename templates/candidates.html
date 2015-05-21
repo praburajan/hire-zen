@@ -1,21 +1,21 @@
 <div class="container">
-	<div class="toolbar">
+	<div class="toolbar" ng-controller="CandidatesController">
 		<div class="panel-body">
 			<ul class="nav navbar-nav">
 				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">Team : {{filterByTeam}} <span class="caret"></span></a>
+					<a class="dropdown-toggle" data-toggle="dropdown">Team : {{selection.team}} <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li ng-repeat="team in teams" ng-click="filterTeam(team)" class="{{filterByTeam ===  team ? 'active' : 'normal'}}"><a>{{team}}</a></li>
+						<li ng-repeat="team in teams" ng-click="filterTeam(team)" class="{{selection.team ===  team ? 'active' : 'normal'}}"><a>{{team}}</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">Manager : {{filterByManager}} <span class="caret"></span></a>
+					<a class="dropdown-toggle" data-toggle="dropdown">Manager : {{selection.manager}} <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li ng-repeat="manager in managers" ng-click="filterManager(manager)" class="{{filterByManager ===  manager ? 'active' : 'normal'}}"><a>{{manager}}</a></li>
+						<li ng-repeat="manager in managers" ng-click="filterManager(manager)" class="{{selection.manager ===  manager ? 'active' : 'normal'}}"><a>{{manager}}</a></li>
 					</ul>
 				</li>
 			</ul>
-			<input type="text" class="filter-panel-field form-control pull-right" id="searchField" name="searchField" placeholder="Search"></input>
+			<input type="text" class="filter-panel-field form-control pull-right" id="searchField" name="searchField" placeholder="Search"/>
 		</div>
 	</div>
 	<div class="list-group">

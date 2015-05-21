@@ -1,0 +1,81 @@
+{
+	"candidates": {
+		"3001": {
+			"id": "3001",
+			"name": "Naresh Kumar",
+			"email": "naresh.bhambu@gmail.com",
+			"mobile": "9986032456",
+			"position": "2001",
+			"location": "Bangalore",
+			"openToRelocate": "true",
+			"skills": {
+				"0": "HTML5",
+				"1": "Javascript",
+				"2": "CSS",
+				"3": "Angular JS"
+			},
+			"experience": "8",
+			"resume": "",
+			"salary": {
+				"current": "1000000",
+				"expected": "40%",
+				"noticePeriod": "2"
+			},
+			"status": "IN_PROGRESS",
+			"interviews": {
+				"0": {
+					"round": "1",
+					"medium": "telephone",
+					"date": "01 May, 2015 5:30 PM",
+					"interviewer": "1002",
+					"feedback": "good",
+					"feedbackDocument": "",
+					"decision": "yes"
+				},
+				"1": {
+					"round": "2",
+					"medium": "video-conf",
+					"date": "01 May, 2015 5:30 PM",
+					"interviewer": "1002",
+					"feedback": "good",
+					"feedbackDocument": "",
+					"decision": "yes"
+				}
+			}
+		},
+		"3002": {
+			"id": "3002",
+			"name": "",
+			"email": "naresh.bhambu@gmail.com",
+			"mobile": "9986032456",
+			"position": "2001",
+			"location": "Bangalore",
+			"openToRelocate": "true",
+			"skills": {
+				"0": "HTML5",
+				"1": "Javascript",
+				"2": "CSS",
+				"3": "Angular JS"
+			},
+			"experience": "8",
+			"resume": "",
+			"salary": {
+				"current": "1000000",
+				"expected": "40%",
+				"noticePeriod": "2"
+			},
+			"status": "IN_PROGRESS",
+			"interviews": {
+				"0": {
+					"round": "1",
+					"medium": "telephone",
+					"date": "01 May, 2015 5:30 PM",
+					"interviewer": "1002",
+					"feedback": "not so good",
+					"feedbackDocument": "",
+					"decision": "yes"
+				}
+			}
+		}
+	}
+}

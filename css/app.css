@@ -1,5 +1,10 @@
 body {
-	padding-top: 80px;
+	padding-top: 70px;
+}
+
+.view-holder {
+    width: 100%;
+    display: table;
 }
 
 a {
@@ -33,6 +38,17 @@ ul>li.normal {
 	background-color : white;
 }
 
+div.login-panel-top {
+    display: table;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -135px;
+    display: table-cell;
+}
+
 div.login-panel {
 	/* Internet Explorer 10 */
     display:-ms-flexbox;
@@ -52,7 +68,6 @@ div.login-panel {
     box-align:center;
     width: 400px;
     height : 200px;
-    margin: auto;
     /*box-sizing: border-box;*/
     padding : 10px 10px 10px 10px;
 }
