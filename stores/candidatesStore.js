@@ -55,7 +55,8 @@ hireZen.factory('CandidatesStore', function() {
 	var selection = {
         team : "All",
         manager : "All",
-        status : "All"
+        status : "All",
+		candidate : candidates[0]
     };
 
 
@@ -71,6 +72,10 @@ hireZen.factory('CandidatesStore', function() {
 		},
 		getStatuses: function() {
 			return statuses;
+		},
+
+		getSelectedCandidate : function () {
+			return selection.candidate;
 		},
 
         getSelectedTeam : function() {

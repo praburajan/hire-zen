@@ -19,7 +19,7 @@
 		</div>
 	</div>
 	<div class="list-group">
-		<a ng-click="select(candidate)" class="list-group-item {{candidate.selected ? 'active' : ''}}" ng-repeat="candidate in candidates">
+		<a ng-click="select(candidate)" class="list-group-item {{selection.candidate === candidate ? 'active' : ''}}" ng-repeat="candidate in candidates">
 			<h4 class="list-group-item-heading">{{candidate.name}}</h4>
 			<p class="list-group-item-text">{{candidate.description}}</p>
 		</a>

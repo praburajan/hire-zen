@@ -8,13 +8,8 @@ hireZen.controller('CandidatesController', function($scope, CandidatesStore) {
 	$scope.selection = CandidatesStore.getSelection();
 
 	$scope.select = function(candidate) {
-		candidate.selected = true;
-		this.candidates.forEach(function(elem, index, arr) {
-			if (elem.name !== candidate.name) {
-				elem.selected = false;
-			}
-		});
-	}.bind($scope);
+		CandidatesStore.getSelection().candidate = candidate;
+	};
 
 	$scope.filterManager = function(manager) {
 		CandidatesStore.setSelectedManager(manager);
