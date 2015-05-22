@@ -99,7 +99,7 @@ hireZen.factory('CandidatesStore', function() {
         },
 
 		setSelectedCandidate : function (candidate) {
-			selection.candidate = candidate == "All" ? "" : candidate;
+			selection.candidate = candidate;
 		},
 
         setSelectedTeam : function(team) {

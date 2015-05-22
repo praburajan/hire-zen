@@ -23,6 +23,12 @@ hireZen.config(function($routeProvider) {
 	}).when('/requirements', {
 		templateUrl: 'templates/requirements.html',
 		controller: 'RequirementsController'
+	}).when('/manage/candidates', {
+		templateUrl: 'templates/manage-candidates.html',
+		controller: 'ManageCandidatesController'
+	}).when('/manage/positions', {
+		templateUrl: 'templates/manage-positions.html',
+		controller: 'ManagePositionsController'
 	}).otherwise({
 		redirectTo: '/candidates'
 	});
