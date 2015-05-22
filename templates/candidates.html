@@ -3,23 +3,23 @@
 		<div class="panel-body">
 			<ul class="nav navbar-nav">
 				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">Team : {{selection.team}} <span class="caret"></span></a>
+					<a class="dropdown-toggle" data-toggle="dropdown">Team : {{selection.team === '' ? 'All' : selection.team}} <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li ng-repeat="team in teams" ng-click="filterTeam(team)" class="{{selection.team ===  team ? 'active' : 'normal'}}"><a>{{team}}</a></li>
 					</ul>
 				</li>
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">Manager : {{selection.manager}} <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li ng-repeat="manager in managers" ng-click="filterManager(manager)" class="{{selection.manager ===  manager ? 'active' : 'normal'}}"><a>{{manager}}</a></li>
-					</ul>
-				</li>
+				<!--<li class="dropdown">-->
+					<!--<a class="dropdown-toggle" data-toggle="dropdown">Manager : {{selection.manager === '' ? 'All' : selection.manager}} <span class="caret"></span></a>-->
+					<!--<ul class="dropdown-menu">-->
+						<!--<li ng-repeat="manager in managers" ng-click="filterManager(manager)" class="{{selection.manager ===  manager ? 'active' : 'normal'}}"><a>{{manager}}</a></li>-->
+					<!--</ul>-->
+				<!--</li>-->
 			</ul>
-			<input type="text" class="filter-panel-field form-control pull-right" id="searchField" name="searchField" placeholder="Search"/>
+			<input type="text" class="filter-panel-field form-control pull-right" id="searchField" name="searchField" placeholder="Search" ng-model="selection.search"/>
 		</div>
 	</div>
 	<div class="list-group">
-		<a ng-click="select(candidate)" class="list-group-item {{selection.candidate === candidate ? 'active' : ''}}" ng-repeat="candidate in candidates">
+		<a ng-click="select(candidate)" class="list-group-item {{selection.candidate === candidate ? 'active' : ''}}" ng-repeat="candidate in candidates | filter: selection.team | filter : selection.search">
 			<h4 class="list-group-item-heading">{{candidate.name}}</h4>
 			<p class="list-group-item-text">{{candidate.description}}</p>
 		</a>

@@ -6,14 +6,14 @@
 			"email": "naresh.bhambu@gmail.com",
 			"mobile": "9986032456",
 			"position": "2001",
-			"location": "Bangalore",
+			"location": "Noida",
 			"openToRelocate": "true",
-			"skills": {
-				"0": "HTML5",
-				"1": "Javascript",
-				"2": "CSS",
-				"3": "Angular JS"
-			},
+//			"skills": {
+//				"0": "HTML5",
+//				"1": "Javascript",
+//				"2": "CSS",
+//				"3": "Angular JS"
+//			},
 			"experience": "8",
 			"resume": "",
 			"salary": {
