@@ -38,15 +38,10 @@ ul>li.normal {
 	background-color : white;
 }
 
-div.login-panel-top {
-    display: table;
-    width: 100%;
+table.login-panel-top {
     position: absolute;
     top: 50%;
-    left: 50%;
-    margin-left: -200px;
     margin-top: -135px;
-    display: table-cell;
 }
 
 div.login-panel {
@@ -67,7 +62,7 @@ div.login-panel {
     box-pack:center;
     box-align:center;
     width: 400px;
-    height : 200px;
+    /*height : 300px;*/
     /*box-sizing: border-box;*/
     padding : 10px 10px 10px 10px;
 }
@@ -79,4 +74,21 @@ div.login-panel {
 .filter-panel-field {
 	margin : 8px 10px 8px 10px;
 	width : 250px !important;
+}
+
+.hirezen-form {
+    width : 60%;
+}
+
+div.candidateSecondRow {
+    margin-top: 5px;
+    color: #999999;
+}
+
+.space-top-10 {
+    margin-top: 10px;
+}
+
+.normal {
+    font-weight: normal;
 }

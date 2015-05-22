@@ -1,5 +1,7 @@
 'use strict';
-var hireZen = angular.module('hireZen', ['ngRoute']);
+var hireZen = angular.module('hireZen', ['ngRoute','firebase', 'ngMessages']);
+
+hireZen.constant('FIREBASE_URL','https://hire-zen.firebaseio.com');
 
 hireZen.controller('MainController', function($scope) {
 	$scope.userInfo = {
@@ -23,6 +25,12 @@ hireZen.config(function($routeProvider) {
 	}).when('/requirements', {
 		templateUrl: 'templates/requirements.html',
 		controller: 'RequirementsController'
+	}).when('/manage/candidates', {
+		templateUrl: 'templates/manage-candidates.html',
+		controller: 'ManageCandidatesController'
+	}).when('/manage/positions', {
+		templateUrl: 'templates/manage-positions.html',
+		controller: 'ManagePositionsController'
 	}).otherwise({
 		redirectTo: '/candidates'
 	});

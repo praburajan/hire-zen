@@ -77,5 +77,108 @@
 				}
 			}
 		}
-	}
+	},
+
+    "roles" : {
+        "-Jq8XCgtRsxBGBG0skiw":"Recruiter",
+        "-Jq8XGPKsa6M5m4nEQmK":"Hiring Manager",
+        "-Jq8XJ-WMW6eQa5fqOyS":"Director",
+        "-Jq8XOU8ZTdneoh30ywU":"Interview Panel"
+    },
+
+    "teams" : {
+        "-Jq8Ui9KMoPzDrlq94It":"Workspace",
+        "-Jq8V43LreJ96w0UEboj":"HWF",
+        "-Jq8V6HL5_DiIy3sY1sO":"Composer",
+        "-Jq8V8_LyjQzTZ4phXDx":"Studio",
+        "-Jq8VF6yWLszcg9jKgHo":"Cloud OPS",
+        "-Jq8VwLdFJqbYdAIXCoV":"Rules UI",
+        "-Jq8VxelgWvMJwEPsBEb":"Rules SDK",
+        "-Jq8W1yFEkexIOVIcVhq":"Onpremise UI",
+        "-Jq8W3T7XVbCxU1ESxUV":"Onpremise Backend"
+    },
+
+    "users" : [
+      {
+          "name" : "Prabu Rajan",
+          "email" : "prabu.shanmugiah@oracle.com",
+          "teams" : {
+
+          },
+          "roles" : {
+
+          }
+      },
+      {
+        "name" : "Mahesh Rao",
+        "email" : "mahesh.p.rao@oracle.com",
+        "teams" : {
+
+        },
+        "roles" : {
+
+        }
+      },
+      {
+        "name" : "Krishna Venkatesh",
+        "email" : "krishna.venkatesh@oracle.com",
+        "teams" : {
+
+        },
+        "roles" : {
+
+        }
+      },
+      {
+        "name" : "Sri Krishan",
+        "email" : "sri.aggarwal@oracle.com",
+        "teams" : {
+
+        },
+        "roles" : {
+
+        }
+      },
+      {
+        "name" : "Kapil Dhembla",
+        "email" : "kapil.dhembla@oracle.com",
+        "teams" : {
+
+        },
+        "roles" : {
+
+        }
+      },
+      {
+        "name" : "Magesh",
+        "email" : "magesh.kumar.narayanan@oracle.com",
+        "teams" : {
+
+        },
+        "roles" : {
+
+        }
+      },
+      {
+        "name" : "Ramesh Anantharamaiah",
+        "email" : "ramesh.anantharamaiah@oracle.com",
+        "teams" : {
+
+        },
+        "roles" : {
+
+        }
+      },
+      {
+        "name" : "Arvindh Sabapathy",
+        "email" : "arvindh.sabapathy@oracle.com",
+        "teams" : {
+
+        },
+        "roles" : {
+
+        }
+      },
+    ]
+
 }

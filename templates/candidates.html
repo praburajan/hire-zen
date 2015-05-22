@@ -1,27 +1,68 @@
-<div class="container">
-	<div class="toolbar" ng-controller="CandidatesController">
-		<div class="panel-body">
-			<ul class="nav navbar-nav">
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">Team : {{selection.team === '' ? 'All' : selection.team}} <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li ng-repeat="team in teams" ng-click="filterTeam(team)" class="{{selection.team ===  team ? 'active' : 'normal'}}"><a>{{team}}</a></li>
-					</ul>
-				</li>
-				<!--<li class="dropdown">-->
-					<!--<a class="dropdown-toggle" data-toggle="dropdown">Manager : {{selection.manager === '' ? 'All' : selection.manager}} <span class="caret"></span></a>-->
-					<!--<ul class="dropdown-menu">-->
-						<!--<li ng-repeat="manager in managers" ng-click="filterManager(manager)" class="{{selection.manager ===  manager ? 'active' : 'normal'}}"><a>{{manager}}</a></li>-->
-					<!--</ul>-->
-				<!--</li>-->
-			</ul>
-			<input type="text" class="filter-panel-field form-control pull-right" id="searchField" name="searchField" placeholder="Search" ng-model="selection.search"/>
-		</div>
-	</div>
-	<div class="list-group">
-		<a ng-click="select(candidate)" class="list-group-item {{selection.candidate === candidate ? 'active' : ''}}" ng-repeat="candidate in candidates | filter: selection.team | filter : selection.search">
-			<h4 class="list-group-item-heading">{{candidate.name}}</h4>
-			<p class="list-group-item-text">{{candidate.description}}</p>
-		</a>
-	</div>
+
+<div class="container-fluid" ng-controller="CandidatesController">
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="toolbar">
+                <div class="panel-body">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Team : {{selection.team === '' ? 'All' :
+                                selection.team}} <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="team in teams" ng-click="filterTeam(team)"
+                                    class="{{selection.team ===  team ? 'active' : 'normal'}}"><a>{{team}}</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <input type="text" class="filter-panel-field form-control pull-right" id="searchField"
+                           name="searchField" placeholder="Search" ng-model="selection.search"/>
+                </div>
+            </div>
+            <div class="list-group table-hover">
+                <a ng-click="select(candidate)"
+                   class="list-group-item {{selection.candidate === candidate ? 'active' : ''}}"
+                   ng-repeat="candidate in candidates | filter: selection.team | filter : selection.search">
+                    <table width="100%">
+                        <tr>
+                            <td width="20%">{{candidate.name}}</td>
+                            <td width="50%"></td>
+                            <td width="30%" align="right">
+                                <span class="label label-success label-as-badge" style="margin-left:5px"
+                                                  ng-repeat="interview in candidate.interviews">{{interview.interviewer}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--<div>-->
+                        <!--<span>-->
+                            <!--{{candidate.name}}-->
+                        <!--</span>-->
+
+                    <!--</div>-->
+                    <div ng-class="selection.candidate !== candidate ? 'candidateSecondRow' : 'active'">
+                        <p class="small">Team : {{candidate.team}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="toolbar">
+                <div class="panel-body">
+                    <div class="panel-default" style="height: 650px"></div>
+                    <!--<ul class="nav navbar-nav">-->
+                        <!--<li class="dropdown">-->
+                            <!--<a class="dropdown-toggle" data-toggle="dropdown">Team : {{selection.team === '' ? 'All' :-->
+                                <!--selection.team}} <span class="caret"></span></a>-->
+                            <!--<ul class="dropdown-menu">-->
+                                <!--<li ng-repeat="team in teams" ng-click="filterTeam(team)"-->
+                                    <!--class="{{selection.team ===  team ? 'active' : 'normal'}}"><a>{{team}}</a></li>-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                    <!--<input type="text" class="filter-panel-field form-control pull-right" id="searchField"-->
+                           <!--name="searchField" placeholder="Search" ng-model="selection.search"/>-->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

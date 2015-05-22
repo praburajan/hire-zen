@@ -2,64 +2,125 @@
 
 hireZen.factory('CandidatesStore', function() {
 	var candidates = [{
-		name: "Naresh Kumar",
+		id: 1001,
+        name: "Naresh Kumar",
 		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
-		team : "Composer"
+		team : "Composer",
+        interviews: [
+            {
+                id: 5001,
+                mode: 1,
+                date: "10 May, 2015",
+                result: 1,
+                panel: [2001]
+            }
+        ]
 	}, {
+        id: 1002,
 		name: "Dinesh Karthik",
 		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
-		team : "Workspace"
+		team : "Workspace",
+        interviews: [
+            {
+                id: 5001,
+                mode: 1,
+                date: "10 May, 2015",
+                result: 1,
+                panel: [2001]
+            }
+        ]
 	}, {
+        id: 1003,
 		name: "Zaheer Khan",
 		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
-		team : "Foundation Services"
+		team : "Foundation Services",
+        interviews: [
+            {
+                id: 5001,
+                mode: 1,
+                date: "10 May, 2015",
+                result: 1,
+                interviewer : 2001
+            }
+        ]
 	}, {
+        id: 1004,
 		name: "Shikhar Dawan",
 		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
-		team: "Human Workflow"
+		team: "Human Workflow",
+        interviews: []
 	}, {
+        id: 1005,
 		name: "Virender Sehwag",
 		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
-		team: "Cloud OPS"
+		team: "Cloud OPS",
+        interviews: []
 	}, {
+        id: 1006,
 		name: "Andrea",
 		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
-		team: "Workspace"
+		team: "Workspace",
+        interviews: []
 	}, {
+        id: 1007,
 		name: "Sridevi",
-		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
-		team: "Foundation Services"
+		team: "Foundation Services",
+        interviews:[
+        {
+            id: 5001,
+            mode: 1,
+            date: "10 May, 2015",
+            result: 1,
+            interviewer: 2002
+        }
+    ]
 	}, {
+        id: 1008,
 		name: "Salman Khan",
-		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
-		team: "Composer"
+		team: "Composer",
+        interviews: [
+            {
+                id: 5001,
+                mode: 1,
+                date: "10 May, 2015",
+                result: 1,
+                interviewer : 2003
+            },
+            {
+                id: 5002,
+                mode: 1,
+                date: "10 May, 2015",
+                result: 1,
+                interviewer : 2002
+            }
+        ]
 	}, {
+        id: 1009,
 		name: "Aamir Khan",
-		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
 		team: "Human Workflow"
 	}, {
+        id: 1010,
 		name: "Ranbhir Kapoor",
-		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
 		team: "Workspace"
 	}, {
+        id: 1011,
 		name: "Virath Kohli",
-		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
 		team: "Composer"
 	}, {
+        id: 1012,
 		name: "MS Dhoni",
-		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
 		team: "Foundation Services"
 	}, {
+        id: 1013,
 		name: "Trisha",
-		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
 		team: "Cloud OPS"
 	}, {
+        id: 1014,
 		name: "Michael Jackson",
-		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
 		team: "Cloud OPS"
 	}, {
+        id: 1015,
 		name: "Narendra Modi",
-		description: "Skills : HTML, CSS, Angular, Java  Applied : 20 Mar, 2015",
 		team: "Human Workflow"
 	}];
 
@@ -99,7 +160,7 @@ hireZen.factory('CandidatesStore', function() {
         },
 
 		setSelectedCandidate : function (candidate) {
-			selection.candidate = candidate == "All" ? "" : candidate;
+			selection.candidate = candidate;
 		},
 
         setSelectedTeam : function(team) {

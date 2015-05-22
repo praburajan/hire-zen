@@ -1,15 +1,44 @@
-<div class="login-panel-top">
-	<div class="panel panel-default login-panel ui stackable centered page grid">
-		<div class="form-group">
-			<label for="userName">Email ID</label>
-			<br>
-			<input type="email" class="form-control login-field" id="userName" placeholder="john@example.com"></input>
-			<br>
-			<label for="password">Password</label>
-			<br>
-			<input type="password" class="form-control login-field" id="password"></input>
-			<br>
-			<button type="submit" class="btn btn-primary login-field">Login</button>
-		</div>
-	</div>
-</div>
+<table width="100%" class="login-panel-top" ng-controller="LoginController">
+    <tr>
+        <td width="100%" align="center">
+            <div>
+                <div class="panel panel-default login-panel">
+
+                    <form id="loginForm">
+                        <div class="form-group" style="text-align: left;">
+                            <label for="userName">Email ID</label>
+                            <br>
+                            <input type="email" class="form-control login-field" id="userName"
+                                   placeholder="john@example.com" ng-model="email" required/>
+                            <br>
+                            <label for="password">Password</label>
+                            <br>
+                            <input type="password" class="form-control login-field" id="password" ng-model="password"
+                                   required/>
+                            <br>
+
+                            <!--<div ng-show="registerFlag">-->
+                                <!--<label for="team">Team</label>-->
+                                <!--<br>-->
+                                <!--<select name="team" id="team" ng-model="currentTeam" class="form-control">-->
+                                    <!--<option ng-repeat="myTeam in teams" value="{{myTeam.$id}}">{{myTeam.$value}}-->
+                                    <!--</option>-->
+                                <!--</select>-->
+                                <!--<br>-->
+                            <!--</div>-->
+
+                            <button type="submit" class="btn btn-primary login-field"
+                                    ng-click="registerFlag ? register(email, password) : login(email, password)">{{registerFlag ?
+                                'Register' : 'Login'}}
+                            </button>
+                            <div class="space-top-10">
+                                <input type="checkbox" id="registerCheck" ng-model="registerFlag"/>
+                                <label for="registerCheck" class="small normal">New User?</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

@@ -1,3 +1,6 @@
+'use strict';
+var hireZen = hireZen || angular.module('hireZen',['ngRoute','firebase', 'ngMessages']);
+
 hireZen.controller('CandidatesController', function($scope, CandidatesStore) {
 	$scope.candidates = CandidatesStore.getCandidates();
 
