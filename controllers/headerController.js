@@ -12,6 +12,17 @@ hireZen.controller('HeaderController', ['$scope','$location','UsersStore',functi
     };
 
     //Store authData from UsersStore after login to disable links
-    $scope.authData = UsersStore.authData;
+    $scope.isAuthenticated = function () {
+        return UsersStore.isAuthenticated();
+    };
+
+    $scope.getUserData = function () {
+        return UsersStore.authData;
+    };
+
+    $scope.logout = function () {
+        UsersStore.logout();
+        $location.path('/login');
+    };
 
 }]);

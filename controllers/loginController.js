@@ -1,7 +1,7 @@
 'use strict';
 var hireZen = hireZen || angular.module('hireZen',['ngRoute','firebase', 'ngMessages']);
 
-hireZen.controller('LoginController', ['$scope','UsersStore', '$location', function ($scope, UsersStore, $location) {
+hireZen.controller('LoginController', ['$scope','UsersStore', '$location', '$rootScope', function ($scope, UsersStore, $location, $rootScope) {
 	$scope.registerFlag = false;
 
     $scope.teams = UsersStore.getTeams();
@@ -11,23 +11,10 @@ hireZen.controller('LoginController', ['$scope','UsersStore', '$location', funct
         var user = {};
         user.email = email;
         user.password = password;
-        if(!email || email.length ===  0 || email.indexOf('@') === -1) {
-            //TODO: show an error message here using ngMessage, but this wont be necessary if we implement required field
-            return;
-        }
-        //Split email id to form first name and last name - only caters to oracle email ids
-        //TODO: need to make this logic generic or enhance register form to include first name and last name
-        var prefix = email.indexOf('@') > -1 ? email.substring(0,email.indexOf('@')) : email;
-        var parts = prefix.split('.');
-        if(parts.length > 1) {
-            //deriving first and last names from email id and capitalizing the first letters
-            user.firstName = parts[0].charAt(0).toUpperCase() + parts[0].slice(1);
-            user.lastName = parts[parts.length-1].charAt(0).toUpperCase() + parts[parts.length-1].slice(1);
-        }
-        else {
-            //if there were no dots, then assume first name as the whole prefix
-            user.firstName = parts[0];
-        }
+        var parts = UsersStore.resolveNamePartsFromEmail(email);
+        //TODO: check for valid email
+        user.firstName = parts[0];
+        user.lastName = parts[1];
         //use firebase authentication to add new users, then authenticate using email id and password and also add the
         // same user to user profile collection in the backend
         UsersStore.addUser(user).then(function (payload) {
@@ -42,6 +29,7 @@ hireZen.controller('LoginController', ['$scope','UsersStore', '$location', funct
 
     $scope.login = function(email, password) {
         console.log('Login called');
+        $rootScope.loading = true;
         var user = {};
         user.email = email;
         user.password = password;
@@ -51,10 +39,12 @@ hireZen.controller('LoginController', ['$scope','UsersStore', '$location', funct
             $scope.authData = authData;
             //redirect to candidates page
             $location.path('/candidates');
+            $rootScope.loading = false;
         }).catch(function (error) {
             console.error("Failed to authenticate user "+user.email+" due to error "+error);
             //TODO: show error message to user
             $scope.error = error;
+            $rootScope.loading = false;
         });
     };
 }]);

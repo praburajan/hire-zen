@@ -27,12 +27,18 @@ hireZen.factory('UsersStore', ['$firebaseArray','$firebaseAuth', 'FIREBASE_URL',
             email : user.email,
             password : user.password
         }).then(function (authData) {
+            self.authData = self.authData || {};
             self.authData.email = authData.password.email;
             self.authData.userId = authData.uid;
+            self.authData.name = user.firstName + " " + user.lastName;
             return Promise.resolve(self.authData);
         }).catch(function (error) {
             return Promise.reject(error);
         });
+    }
+
+    function logout() {
+        return auth.$unauth();
     }
 
     function addUser(user) {
@@ -41,9 +47,28 @@ hireZen.factory('UsersStore', ['$firebaseArray','$firebaseAuth', 'FIREBASE_URL',
         return users.$add(user);
     }
 
-    return {
-        authData : {},
+    function resolveNameParts(email) {
+        var nameParts = [];
+        if(!email || email.length ===  0 || email.indexOf('@') === -1) {
+            return nameParts;
+        }
+        //Split email id to form first name and last name - only caters to oracle email ids
+        //TODO: need to make this logic generic or enhance register form to include first name and last name
+        var prefix = email.indexOf('@') > -1 ? email.substring(0,email.indexOf('@')) : email;
+        var parts = prefix.split('.');
+        if(parts.length > 1) {
+            //deriving first and last names from email id and capitalizing the first letters
+            nameParts[0] = parts[0].charAt(0).toUpperCase() + parts[0].slice(1);
+            nameParts[1] = parts[parts.length-1].charAt(0).toUpperCase() + parts[parts.length-1].slice(1);
+        }
+        else {
+            //if there were no dots, then assume first name as the whole prefix
+            nameParts[0] = parts[0];
+        }
+        return nameParts;
+    }
 
+    return {
         getUsers : function () {
             return users;
         },
@@ -74,7 +99,7 @@ hireZen.factory('UsersStore', ['$firebaseArray','$firebaseAuth', 'FIREBASE_URL',
                 return p3(user);
             }).then(function (userData) {
                 payload.userData = {
-                    id : userData.key(),
+                    userId : userData.key(),
                     index : users.indexOf(userData),
                     toString : function() {
                         return "id : "+this.id+" index : "+this.index;
@@ -92,9 +117,23 @@ hireZen.factory('UsersStore', ['$firebaseArray','$firebaseAuth', 'FIREBASE_URL',
             return authenticate.call(this,user);
         },
 
+        logout : function () {
+            delete this.authData;
+            logout();
+        },
+
         getTeams : function () {
             return teams;
+        },
+
+        resolveNamePartsFromEmail: function(email) {
+            return resolveNameParts(email);
+        },
+
+        isAuthenticated : function () {
+            console.log(this.authData);
+            return (this.authData && this.authData.userId != 'undefined');
         }
-    }
+    };
 
 }]);

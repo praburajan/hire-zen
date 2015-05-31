@@ -32,7 +32,7 @@ hireZen.config(function($routeProvider) {
 		templateUrl: 'templates/manage-positions.html',
 		controller: 'ManagePositionsController'
 	}).otherwise({
-		redirectTo: '/candidates'
+		redirectTo: '/login'
 	});
 });
 
@@ -40,19 +40,16 @@ hireZen.directive('header', [function() {
 	return {
 		restrict: 'AE',
 		templateUrl: 'templates/header.html',
-		// controller: function('HeaderController', function ($scope) {
-		// 	$scope.logout = function() {
-		// 		$rootScope.userInfo = {};
-		// 		//$location.path('login');
-		// 	},
-		// 	$scope.gotoRegister = function() {
-		// 		$rootScope.userInfo = {};
-		// 		//$location.path('register');
-		// 	}
-		// }),
+
 		link: function(scope, iElement, iAttrs) {
+            var bool = {
+                'true' : true,
+                'false' : false
+            };
 			scope.appLabel = iAttrs.applabel;
 			scope.appIcon = iAttrs.appicon;
+            //scope.$apply(iAttrs.authenticated);
+            //scope.$apply(iAttrs.userData);
 		}
 	};
 }]);

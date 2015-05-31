@@ -11,7 +11,7 @@
 	</div>
 
 	<!-- Collect the nav links, forms, and other content for toggling -->
-	<div class="collapse navbar-collapse navbar-ex1-collapse" ng-show="authData">
+	<div ng-show="isAuthenticated()">
 		<ul class="nav navbar-nav">
 			<li class="{{isActive('/candidates') ? 'active' : ''}}"><a href="#/candidates">Candidates</a></li>
 			<li class="{{isActive('/requirements') ? 'active' : ''}}"><a href="#/requirements">Requirements</a></li>
@@ -43,10 +43,10 @@
 		<ul class="nav navbar-nav navbar-right">
 			<li><p class="navbar-text">Logged in as</p></li>
 			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown">{{authData.password.email}} <b class="caret"></b></a>
+				<a class="dropdown-toggle" data-toggle="dropdown">{{getUserData().email}} <b class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li><a>Profile</a></li>
-					<li><a href="#/login">Logout</a></li>
+					<li><a ng-click="logout()">Logout</a></li>
 				</ul>
 			</li>
 		</ul>

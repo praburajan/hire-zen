@@ -3,7 +3,6 @@
         <td width="100%" align="center">
             <div>
                 <div class="panel panel-default login-panel">
-
                     <form id="loginForm">
                         <div class="form-group" style="text-align: left;">
                             <label for="userName">Email ID</label>
@@ -16,17 +15,6 @@
                             <input type="password" class="form-control login-field" id="password" ng-model="password"
                                    required/>
                             <br>
-
-                            <!--<div ng-show="registerFlag">-->
-                                <!--<label for="team">Team</label>-->
-                                <!--<br>-->
-                                <!--<select name="team" id="team" ng-model="currentTeam" class="form-control">-->
-                                    <!--<option ng-repeat="myTeam in teams" value="{{myTeam.$id}}">{{myTeam.$value}}-->
-                                    <!--</option>-->
-                                <!--</select>-->
-                                <!--<br>-->
-                            <!--</div>-->
-
                             <button type="submit" class="btn btn-primary login-field"
                                     ng-click="registerFlag ? register(email, password) : login(email, password)">{{registerFlag ?
                                 'Register' : 'Login'}}
