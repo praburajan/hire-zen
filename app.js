@@ -36,22 +36,29 @@ hireZen.config(function($routeProvider) {
 	});
 });
 
-hireZen.directive('header', [function() {
-	return {
-		restrict: 'AE',
-		templateUrl: 'templates/header.html',
+//listen to $routeChangeStart event on rootScope to redirect to login if not authenticated
+hireZen.run(function ($rootScope, $location, UsersStore) {
+    $rootScope.$on('$routeChangeStart', function (event, next, current) {
+        if(!UsersStore.isAuthenticated()) {
+            $location.path("/login");
+        }
+    });
+});
 
-		link: function(scope, iElement, iAttrs) {
+hireZen.directive('header', [function() {
+    return {
+        restrict: 'AE',
+        templateUrl: 'templates/header.html',
+
+        link: function(scope, iElement, iAttrs) {
             var bool = {
                 'true' : true,
                 'false' : false
             };
-			scope.appLabel = iAttrs.applabel;
-			scope.appIcon = iAttrs.appicon;
-            //scope.$apply(iAttrs.authenticated);
-            //scope.$apply(iAttrs.userData);
-		}
-	};
+            scope.appLabel = iAttrs.applabel;
+            scope.appIcon = iAttrs.appicon;
+        }
+    };
 }]);
 
 

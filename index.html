@@ -17,10 +17,16 @@
     <script src="bower_components/firebase/firebase.js"></script>
 	<!-- AngularFire -->
 	<script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+
+
 	<script src="app.js"></script>
+
     <script src="stores/usersStore.js"></script>
+    <script src="directives/alert.js"></script>
     <script src="controllers/loginController.js"></script>
-	<script src="controllers/headerController.js"></script>
+
+    <script src="directives/loading.js"></script>
+    <script src="controllers/headerController.js"></script>
 	<script src="stores/candidatesStore.js"></script>
 	<script src="controllers/candidatesController.js"></script>
 	<script src="stores/manageCandidatesStore.js"></script>
@@ -30,6 +36,9 @@
 	<header appLabel="Hire Zen" appIcon="img/hire-zen.png"></header>
 	<div class="container view-holder" ng-view>
 	</div>
-    <div ng-show="loading"><img src="img/loading.gif"></div>
+    <!--<div ng-show="loading">-->
+        <!--<div id="spinner"> </div>-->
+        <!--<img src="img/loading.gif" class="loading"/>-->
+    <!--</div>-->
 </body>
 </html>

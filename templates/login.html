@@ -15,10 +15,11 @@
                             <input type="password" class="form-control login-field" id="password" ng-model="password"
                                    required/>
                             <br>
-                            <button type="submit" class="btn btn-primary login-field"
-                                    ng-click="registerFlag ? register(email, password) : login(email, password)">{{registerFlag ?
-                                'Register' : 'Login'}}
-                            </button>
+                            <loading-button progress="{{loading.status}}"
+                                            action="registerFlag ? register(email, password) : login(email, password)"
+                                            progress-text="{{registerFlag ? 'Registering..' : 'Logging in..'}}">
+                                {{registerFlag ? 'Register' : 'Login'}}
+                            </loading-button>
                             <div class="space-top-10">
                                 <input type="checkbox" id="registerCheck" ng-model="registerFlag"/>
                                 <label for="registerCheck" class="small normal">New User?</label>
@@ -26,6 +27,9 @@
                         </div>
                     </form>
                 </div>
+                <br>
+                <br>
+                <alert-msg type="danger" message="{{error.toString()}}"></alert-msg>
             </div>
         </td>
     </tr>

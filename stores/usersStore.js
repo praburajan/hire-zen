@@ -1,11 +1,14 @@
 /**
  * Created by praburajan on 24/05/15.
+ * Handles authentication using firebase and does all operations with respect to users
+ * Any operation that involves async - calling backend services, will return a promise to the calling function
  */
 
 'use strict';
 var hireZen = hireZen || angular.module('hireZen',['ngRoute','firebase']);
 
-hireZen.factory('UsersStore', ['$firebaseArray','$firebaseAuth', 'FIREBASE_URL',function ($firebaseArray, $firebaseAuth, FIREBASE_URL) {
+hireZen.factory('UsersStore', ['$firebaseArray','$firebaseAuth', 'FIREBASE_URL', '$q',
+    function ($firebaseArray, $firebaseAuth, FIREBASE_URL, $q) {
     var fbRef = new Firebase(FIREBASE_URL);
     var usersRef = fbRef.child("users");
     var users = $firebaseArray(usersRef);
@@ -85,32 +88,31 @@ hireZen.factory('UsersStore', ['$firebaseArray','$firebaseAuth', 'FIREBASE_URL',
             //create payload object to return in the promise payload
             var payload = {};
             //create the user in firebase's auth system and login the user
-            var p1 = createUser;
-            var p2 = authenticate;
-            var p3 = addUser;
-
-            p1(user).then(function (userData) {
+            //Promise object to return from the function
+            var q1 = $q.defer();
+            createUser(user).then(function (userData) {
                 payload.userId = userData.uid;
-                console.log("Created user in firebase auth db with id "+userData.uid);
-                return p2(user);
+                console.log("Created user in firebase auth db with id " + userData.uid);
+                return authenticate(user);
             }).then(function (authData) {
                 payload.authData = authData;
-                console.log("Authenticated user in firebase auth db with id "+authData.uid);
-                return p3(user);
+                console.log("Authenticated user in firebase auth db with id " + authData.uid);
+                return addUser(user);
             }).then(function (userData) {
                 payload.userData = {
-                    userId : userData.key(),
-                    index : users.indexOf(userData),
-                    toString : function() {
-                        return "id : "+this.id+" index : "+this.index;
+                    userId: userData.key(),
+                    index: users.indexOf(userData),
+                    toString: function () {
+                        return "id : " + this.id + " index : " + this.index;
                     }
                 };
-                console.log("User created in profile db successfully with details "+payload);
-                return Promise.resolve(payload);
+                console.log("User created in profile db successfully with details " + payload);
+                q1.resolve(payload);
             }).catch(function (error) {
                 console.error(error);
-                return Promise.reject(error);
+                q1.reject(error);
             });
+            return q1.promise;
         },
 
         authUser : function (user) {

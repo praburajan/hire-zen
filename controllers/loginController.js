@@ -6,9 +6,14 @@ hireZen.controller('LoginController', ['$scope','UsersStore', '$location', '$roo
 
     $scope.teams = UsersStore.getTeams();
     $scope.users = UsersStore.getUsers();
+    $scope.loading = {
+        status : false
+    };
 
 	$scope.register = function(email, password) {
         var user = {};
+        delete $scope.error;
+        $scope.loading.status = true;
         user.email = email;
         user.password = password;
         var parts = UsersStore.resolveNamePartsFromEmail(email);
@@ -20,16 +25,19 @@ hireZen.controller('LoginController', ['$scope','UsersStore', '$location', '$roo
         UsersStore.addUser(user).then(function (payload) {
             $scope.authData = payload.authData;
             $scope.userData = payload.userData;
+            $scope.loading.status = false;
         }).catch(function (error) {
             //TODO: show error message
             $scope.error = error;
+            $scope.loading.status = false;
             console.error(error);
         });
 	};
 
     $scope.login = function(email, password) {
         console.log('Login called');
-        $rootScope.loading = true;
+        $scope.loading.status = true;
+        delete $scope.error;
         var user = {};
         user.email = email;
         user.password = password;
@@ -44,7 +52,15 @@ hireZen.controller('LoginController', ['$scope','UsersStore', '$location', '$roo
             console.error("Failed to authenticate user "+user.email+" due to error "+error);
             //TODO: show error message to user
             $scope.error = error;
-            $rootScope.loading = false;
+            $scope.loading.status = false;
         });
     };
+
+    $scope.hasError = function () {
+        return typeof errorObj != 'undefined';
+    };
+
+    $scope.getError = function () {
+        return errorObj;
+    }
 }]);

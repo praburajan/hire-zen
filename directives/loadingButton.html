@@ -1,0 +1,10 @@
+<div ng-switch on="progress">
+    <button type="submit" class="btn btn-primary login-field"
+            ng-click="action()" ng-switch-when="false" ng-transclude>
+    </button>
+    <div class="progress" style="height:34px;" ng-switch-when="true">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:100%;padding-top:5px;font-size: 1.3rem;">
+            {{progressText}}
+        </div>
+    </div>
+</div>
